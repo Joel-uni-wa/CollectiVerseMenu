@@ -1,7 +1,7 @@
 <header>
   <nav class="navbar">
     <span class="menu-toggle" (click)="toggleMenu()">☰</span>
-    <span class="logo">MiSitio</span>
+    <span class="logo">CollectiVerse</span>
 
     <ul class="nav-links" [class.active]="menuAbierto">
       <li>
@@ -15,6 +15,21 @@
       </li>
     </ul>
   </nav>
+
 </header>
+
+<main class="hero">
+  <div class="hero-content">
+    <div class="hero-image">
+      <img src="/bienvenido.png" alt="Bienvenido a CollectiVerse ジ">
+    </div>
+
+    <h1>¡Bienvenido a CollectiVerse ジ!</h1>
+
+    <p>
+      Esta es la página principal.
+    </p>
+  </div>
+</main>
 
 <router-outlet />
