@@ -1,0 +1,51 @@
+<div class="modal">
+  <div class="modal-content">
+
+    <h2>Detalles del perfil</h2>
+
+    <div class="perfil-avatar">
+      <span>{{ usuario.nombre.charAt(0) }}</span>
+    </div>
+
+    <div class="datos">
+
+      <div class="dato">
+        <label>Nombre completo:</label>
+        <p>{{ usuario.nombre }}</p>
+      </div>
+
+      <div class="dato">
+        <label>Nombre de usuario:</label>
+        <p>@{{ usuario.usuario }}</p>
+      </div>
+
+      <div class="dato">
+        <label>Correo electrónico:</label>
+        <p>{{ usuario.correo }}</p>
+      </div>
+
+      <div class="dato">
+        <label>Fecha de registro:</label>
+        <p>{{ usuario.fechaRegistro }}</p>
+      </div>
+
+      <div class="dato">
+        <label>Coleccionables:</label>
+        <p>{{ usuario.coleccionables }}</p>
+      </div>
+
+      <div class="dato">
+        <label>Publicaciones:</label>
+        <p>{{ usuario.publicaciones }}</p>
+      </div>
+
+    </div>
+
+    <div class="botones">
+      <button type="button" (click)="cerrar.emit()">
+        Cerrar
+      </button>
+    </div>
+
+  </div>
+</div>

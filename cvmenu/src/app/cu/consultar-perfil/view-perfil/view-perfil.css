@@ -1,0 +1,72 @@
+.contenedor {
+    display: flex;
+    justify-content: center;
+    padding: 40px 20px;
+}
+
+.perfil-card {
+    width: 100%;
+    max-width: 450px;
+    padding: 30px;
+    text-align: center;
+    background: linear-gradient(145deg, #ffffff, #f0f6fa);
+    border-radius: 15px;
+    border-top: 4px solid #4d9bc4;
+    box-shadow: 0 10px 30px rgba(27, 65, 91, 0.13);
+}
+
+.perfil-avatar {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #174b70, #287da5);
+    color: white;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+h2 {
+    color: #174b70;
+    margin-bottom: 5px;
+}
+
+.usuario {
+    color: #78909c;
+    margin-top: 0;
+}
+
+.estadisticas {
+    display: flex;
+    justify-content: space-around;
+    margin: 25px 0;
+    gap: 15px;
+}
+
+.estadisticas h3 {
+    color: #174b70;
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+
+.estadisticas p {
+    color: #60798c;
+    font-size: 14px;
+}
+
+.btn-perfil {
+    background-color: #174b70;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 7px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn-perfil:hover {
+    background-color: #287da5;
+}

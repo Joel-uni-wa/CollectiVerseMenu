@@ -1,0 +1,58 @@
+<div class="modal">
+  <div class="modal-content">
+
+    <h2>Nueva publicación</h2>
+
+    <form #miForm="ngForm" (ngSubmit)="onGuardar(miForm)">
+
+      <label>Coleccionable:</label>
+      <input
+        type="text"
+        [(ngModel)]="publicacion.nombre"
+        name="nombre"
+        required
+      >
+
+      <label>Tipo de publicación:</label>
+      <select
+        [(ngModel)]="publicacion.tipo"
+        name="tipo"
+        required
+      >
+        <option value="Venta">Venta</option>
+        <option value="Intercambio">Intercambio</option>
+      </select>
+
+      @if (publicacion.tipo === 'Venta') {
+        <label>Precio (S/):</label>
+        <input
+          type="number"
+          [(ngModel)]="publicacion.precio"
+          name="precio"
+          required
+          min="0.01"
+        >
+      }
+
+      <label>Descripción:</label>
+      <textarea
+        [(ngModel)]="publicacion.descripcion"
+        name="descripcion"
+        rows="3"
+        required
+      ></textarea>
+
+      <div class="botones">
+        <button type="button" (click)="cerrar.emit()">
+          Cancelar
+        </button>
+
+        <button type="submit">
+          Publicar
+        </button>
+      </div>
+
+    </form>
+
+  </div>
+</div>

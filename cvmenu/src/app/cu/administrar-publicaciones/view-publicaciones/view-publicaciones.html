@@ -1,0 +1,48 @@
+<div class="contenedor">
+
+  <div class="encabezado">
+    <h2>Mis publicaciones</h2>
+
+    <button class="btn-nuevo" (click)="abrirModal()">
+      + Nueva publicación
+    </button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Coleccionable</th>
+        <th>Tipo</th>
+        <th>Precio</th>
+        <th>Estado</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      @for (publicacion of publicaciones; track publicacion.id) {
+        <tr>
+          <td>{{ publicacion.id }}</td>
+          <td>{{ publicacion.nombre }}</td>
+          <td>{{ publicacion.tipo }}</td>
+          <td>
+            {{ publicacion.tipo === 'Venta' ? 'S/ ' + publicacion.precio : 'Intercambio' }}
+          </td>
+          <td>{{ publicacion.estado }}</td>
+        </tr>
+      } @empty {
+        <tr>
+          <td colspan="5">No hay publicaciones disponibles.</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+</div>
+
+@if (mostrarModal) {
+  <app-modal-publicaciones
+    (cerrar)="cerrarModal()"
+    (guardar)="guardarPublicacion($event)">
+  </app-modal-publicaciones>
+}

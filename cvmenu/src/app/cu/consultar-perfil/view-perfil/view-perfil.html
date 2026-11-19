@@ -1,0 +1,36 @@
+<div class="contenedor">
+
+  <div class="perfil-card">
+
+    <div class="perfil-avatar">
+      <span>{{ usuario.nombre.charAt(0) }}</span>
+    </div>
+
+    <h2>{{ usuario.nombre }}</h2>
+    <p class="usuario">@{{ usuario.usuario }}</p>
+
+    <div class="estadisticas">
+      <div>
+        <h3>{{ usuario.coleccionables }}</h3>
+        <p>Coleccionables</p>
+      </div>
+
+      <div>
+        <h3>{{ usuario.publicaciones }}</h3>
+        <p>Publicaciones</p>
+      </div>
+    </div>
+
+    <button class="btn-perfil" (click)="abrirModal()">
+      Consultar perfil
+    </button>
+
+  </div>
+  @if (mostrarModal) {
+  <app-modal-perfil
+    [usuario]="usuario"
+    (cerrar)="cerrarModal()">
+  </app-modal-perfil>
+}
+
+</div>
