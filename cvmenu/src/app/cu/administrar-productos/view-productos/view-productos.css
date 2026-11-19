@@ -1,0 +1,53 @@
+.contenedor {
+  padding: 30px;
+}
+
+h2 {
+  color: #0077b6;
+  margin-bottom: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+}
+
+th, td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #cbd5e1;
+}
+
+th {
+  background-color: #0077b6;
+  color: white;
+}
+
+tr:hover {
+  background-color: #f1f5f9;
+}
+
+button {
+  background-color: #0077b6;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #005f8f;
+}
+
+@media (max-width: 600px) {
+  .contenedor {
+    padding: 15px;
+    overflow-x: auto;
+  }
+
+  table {
+    min-width: 600px;
+  }
+}
