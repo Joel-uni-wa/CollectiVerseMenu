@@ -3,51 +3,73 @@
 
     <h2>Nueva publicación</h2>
 
-    <form #miForm="ngForm" (ngSubmit)="onGuardar(miForm)">
+    <form #form="ngForm" (ngSubmit)="onGuardar(form)">
 
-      <label>Coleccionable:</label>
-      <input
-        type="text"
-        [(ngModel)]="publicacion.nombre"
-        name="nombre"
-        required
-      >
+      <div class="campo">
+        <label>Nombre del coleccionable:</label>
 
-      <label>Tipo de publicación:</label>
-      <select
-        [(ngModel)]="publicacion.tipo"
-        name="tipo"
-        required
-      >
-        <option value="Venta">Venta</option>
-        <option value="Intercambio">Intercambio</option>
-      </select>
-
-      @if (publicacion.tipo === 'Venta') {
-        <label>Precio (S/):</label>
         <input
-          type="number"
-          [(ngModel)]="publicacion.precio"
-          name="precio"
+          type="text"
+          name="nombre"
+          [(ngModel)]="publicacion.nombre"
           required
-          min="0.01"
+          placeholder="Ej. Charizard EX"
         >
+      </div>
+
+      <div class="campo">
+        <label>Tipo de publicación:</label>
+
+        <select
+          name="tipo"
+          [(ngModel)]="publicacion.tipo"
+          required
+        >
+          <option value="Venta">Venta</option>
+          <option value="Intercambio">Intercambio</option>
+          <option value="Ambos">Ambos</option>
+        </select>
+      </div>
+
+      @if (publicacion.tipo === 'Venta' || publicacion.tipo === 'Ambos') {
+        <div class="campo">
+          <label>Precio (S/):</label>
+
+          <input
+            type="number"
+            name="precio"
+            [(ngModel)]="publicacion.precio"
+            min="0"
+            required
+            placeholder="Ingresa el precio"
+          >
+        </div>
       }
 
-      <label>Descripción:</label>
-      <textarea
-        [(ngModel)]="publicacion.descripcion"
-        name="descripcion"
-        rows="3"
-        required
-      ></textarea>
+      <div class="campo">
+        <label>Descripción:</label>
+
+        <textarea
+          name="descripcion"
+          [(ngModel)]="publicacion.descripcion"
+          required
+          placeholder="Describe tu publicación..."
+        ></textarea>
+      </div>
 
       <div class="botones">
-        <button type="button" (click)="cerrar.emit()">
+        <button
+          type="button"
+          class="btn-cancelar"
+          (click)="cerrar.emit()"
+        >
           Cancelar
         </button>
 
-        <button type="submit">
+        <button
+          type="submit"
+          class="btn-guardar"
+        >
           Publicar
         </button>
       </div>

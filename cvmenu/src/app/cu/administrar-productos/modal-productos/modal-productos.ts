@@ -1,4 +1,3 @@
-
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
 
@@ -10,7 +9,9 @@ import { FormsModule, NgForm } from '@angular/forms';
 })
 export class ModalProductos {
 
-  @Input() producto: any;
+  @Input() producto: any = {
+    categoriaPersonalizada: ''
+  };
 
   @Output() cerrar = new EventEmitter<void>();
 
@@ -18,6 +19,11 @@ export class ModalProductos {
 
   onGuardar(form: NgForm) {
     if (form.valid) {
+
+      if (this.producto.categoria === 'Otros') {
+        this.producto.categoria = this.producto.categoriaPersonalizada;
+      }
+
       this.guardar.emit(this.producto);
       this.cerrar.emit();
     }

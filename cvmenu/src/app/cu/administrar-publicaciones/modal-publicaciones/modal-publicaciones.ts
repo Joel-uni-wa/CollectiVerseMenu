@@ -10,7 +10,6 @@ import { FormsModule, NgForm } from '@angular/forms';
 export class ModalPublicaciones {
 
   @Output() cerrar = new EventEmitter<void>();
-
   @Output() guardar = new EventEmitter<any>();
 
   publicacion: any = {
@@ -23,6 +22,12 @@ export class ModalPublicaciones {
 
   onGuardar(form: NgForm) {
     if (form.valid) {
+
+      // Si es categoría, no necesita precio
+      if (this.publicacion.tipo === 'Categoría') {
+        this.publicacion.precio = 0;
+      }
+
       this.guardar.emit(this.publicacion);
       this.cerrar.emit();
     }

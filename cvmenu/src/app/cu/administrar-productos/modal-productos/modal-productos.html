@@ -22,12 +22,30 @@
         required
       >
 
-      <label>Categoría:</label>
-      <select [(ngModel)]="producto.categoria" name="categoria" required>
-        <option value="Pokémon">Pokémon</option>
-        <option value="Yu-Gi-Oh!">Yu-Gi-Oh!</option>
-        <option value="Otros">Otros</option>
-      </select>
+      <div class="campo">
+  
+  <label>Categoría:</label>
+    <select name="categoria" [(ngModel)]="producto.categoria" required>
+      <option value="Pokémon">Pokémon</option>
+      <option value="Yu-Gi-Oh!">Yu-Gi-Oh!</option>
+      <option value="Uma Musume">Uma Musume</option>
+      <option value="Otros">Otros</option>
+    </select>
+  </div>
+
+  @if (producto.categoria === 'Otros') {
+    <div class="campo">
+      <label>Especificar categoría:</label>
+
+      <input
+        type="text"
+        name="categoriaPersonalizada"
+        [(ngModel)]="producto.categoriaPersonalizada"
+        placeholder="Escribe la categoría..."
+        required
+      >
+    </div>
+  }
 
       <label>Descripción:</label>
       <textarea
